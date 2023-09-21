@@ -24,8 +24,10 @@ class VanylController extends AbstractController
     #[Route('/browse/{slug?}', name: 'app_browse')]
     public function browse($slug = null): Response
     {
-        !$slug ? $slug = 'lox' : $slug = str_replace('-', ' ', $slug);
+        $genre = $slug ? str_replace('-', ' ', $slug) : null;
 
-        return new Response('Brack vanil '.$slug);
+        return $this->render('vanyl/browse.html.twig', [
+            'genre' => $genre
+        ]);
     }
 }
