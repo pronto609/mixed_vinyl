@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class VanylController extends AbstractController
 {
-    #[Route('/', name: 'app_vanyl')]
+    #[Route('/', name: 'app_homepage')]
     public function index(): Response
     {
         $tracks = [];
