@@ -11,7 +11,14 @@ class VanylController extends AbstractController
     #[Route('/', name: 'app_vanyl')]
     public function index(): Response
     {
-        return new Response('vanil!!');
+        $tracks = [];
+        for ($i = 1; $i < 10; $i++) {
+            $tracks[] = ['song' => 'song '.$i, 'artist' => 'artist '.$i];
+        }
+        return $this->render('vanyl/homepage.html.twig', [
+            'title' => " PB & Jams",
+            'tracks' => $tracks,
+        ]);
     }
 
     #[Route('/browse/{slug?}', name: 'app_browse')]
